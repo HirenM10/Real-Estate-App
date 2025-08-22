@@ -21,8 +21,8 @@
 		- Inside "backend/api" folder in solution explorer, open file appsettings.json
 		- Here in connection string section paste your local connection string value against "REDb"
 			mine is "Server=(localdb)\\MSSQLLocalDB;Database=REDb;Trusted_Connection=True;"
-		- It will be same i guess for your end - for local light weight instance of sql server (sql local db)	
- 	[6] Run command "dotnet ef database update"
+		- It will be same i guess for your end - for local light weight instance of sql server (sql local db)
+ 	[6] Run command "dotnet ef database update" (If you get error then run this command first "dotnet tool install --global dotnet-ef" then run "dotnet ef database update")
 		- This will create database with initial seed data
 	[7] Run command "dotnet run"
 		- This will run backend api layer

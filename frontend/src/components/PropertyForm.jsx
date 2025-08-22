@@ -26,8 +26,9 @@ export default function PropertyForm({ onSubmit }) {
       <textarea name="description" value={form.description} onChange={handleChange} placeholder="Description" className="p-2 border rounded"></textarea>
       <select name="type" value={form.type} onChange={handleChange} className="p-2 border rounded">
         <option value="">Select Type</option>
-        <option>Apartment</option>
-        <option>Villa</option>
+        <option value="1">House</option>
+        <option value="2">Apartment</option>
+        <option value="3">Condo</option>
       </select>
       <input type="number" name="price" value={form.price} onChange={handleChange} placeholder="Price" className="p-2 border rounded" />
       <button type="submit" className="bg-blue-600 text-white py-2 rounded">Add</button>

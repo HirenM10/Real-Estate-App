@@ -1,12 +1,20 @@
 import PropertyForm from '../components/PropertyForm'
 import { api } from '../api/mockApi'
 import { useState } from 'react'
+import axios from 'axios'
 
 export default function AddPropertyPage() {
   const [message, setMessage] = useState('')
 
   const handleAdd = async (property) => {
-    await api.createProperty(property)
+    try {
+      const response = await axios.post("http://localhost:5180/api/properties", property);
+      //setProperties(response.data.items);
+      //setTotalCount(response.data.totalCount);
+    } catch (err) {
+      console.error("Error adding property", err);
+    }
+
     setMessage('Property added successfully!')
   }
 

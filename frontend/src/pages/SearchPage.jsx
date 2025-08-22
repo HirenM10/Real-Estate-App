@@ -10,7 +10,7 @@ export default function SearchPage() {
   const [loading, setLoading] = useState(false)
   const [stats, setStats] = useState(null)
   const [page, setPage] = useState(1)
-  const [pageSize] = useState(3);
+  const [pageSize] = useState(9);
   const [totalCount, setTotalCount] = useState(0);
   //const itemsPerPage = 2
 

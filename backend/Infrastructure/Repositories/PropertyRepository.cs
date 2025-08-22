@@ -17,15 +17,15 @@ internal class PropertyRepository(REDbContext dbContext) : IPropertyRepository
     }
     
     public async Task<(IEnumerable<Property> Items, int TotalCount)> GetAllAsync(
-        int? propertyType = -1,
+        int? propertyType = 0,
         decimal? minPrice = null,
         decimal? maxPrice = null,
         int pageNumber = 1,
         int pageSize = 10
     )
     {
-        var type = propertyType == 0 ? PropertyType.House :
-            (propertyType == 1 ? PropertyType.Apartment : (propertyType == 2 ? PropertyType.Condo : PropertyType.All));
+        var type = propertyType == 0 ? PropertyType.All :
+            propertyType == 1 ? PropertyType.House : propertyType == 2 ? PropertyType.Apartment : PropertyType.Condo;
 
 
         var query = dbContext.Properties.AsQueryable();

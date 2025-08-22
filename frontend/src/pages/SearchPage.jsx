@@ -5,7 +5,7 @@ import PropertyCard from '../components/PropertyCard'
 import Pagination from '../components/Pagination'
 
 export default function SearchPage() {
-  const [filters, setFilters] = useState({ type: '', minPrice: 10, maxPrice: 1000000000 })
+  const [filters, setFilters] = useState({ type: '', minPrice: '', maxPrice: '' })
   const [properties, setProperties] = useState([])
   const [loading, setLoading] = useState(false)
   const [stats, setStats] = useState(null)
@@ -56,10 +56,10 @@ export default function SearchPage() {
       <div className="flex gap-2 mb-4">
         
         <select name="type" value={filters.type} onChange={(e) => setFilters({ ...filters, type: e.target.value })} className="p-2 border rounded">
-          <option value="-1">All Types</option>
-          <option value="0">House</option>
-          <option value="1">Apartment</option>
-          <option value="2">Condo</option>
+          <option value="0" selected>All Types</option>
+          <option value="1">House</option>
+          <option value="2">Apartment</option>
+          <option value="3">Condo</option>
         </select>
         <input
           type="number"
@@ -75,12 +75,6 @@ export default function SearchPage() {
           onChange={(e) => setFilters({ ...filters, maxPrice: e.target.value })}
           className="border p-2"
         />
-        <button
-          onClick={() => setPage(1)}
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          Apply Filters
-        </button>
       </div>
 
       {loading ? (
@@ -117,6 +111,7 @@ export default function SearchPage() {
           Next
         </button>
       </div>
+      {stats && <p className="mt-4">📊 Average Space Size: {stats.avgSize.toFixed(2)} sqft</p>}
     </div>
   );
 }

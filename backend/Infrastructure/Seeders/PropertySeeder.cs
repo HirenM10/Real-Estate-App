@@ -27,7 +27,7 @@ internal class PropertySeeder(REDbContext dbContext) : IPropertySeeder
             new Property { Name = "A Tech Park Plaza", Type = PropertyType.House, Price = 850000 },
             new Property { Name = "A Sunset Villas", Type = PropertyType.Condo, Price = 300000 },
 
-            new Property { Name = "B Greenwood Apartments", Type = PropertyType.All, Price = 20000 },
+            new Property { Name = "B Greenwood Apartments", Type = PropertyType.Apartment, Price = 20000 },
             new Property { Name = "B Tech Park Plaza", Type = PropertyType.House, Price = 750000 },
             new Property { Name = "B Sunset Villas", Type = PropertyType.Condo, Price = 900000 },
 
